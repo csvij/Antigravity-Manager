@@ -63,9 +63,9 @@ const LogTable: React.FC<LogTableProps> = ({
                     <tr>
                         <th style={{ width: '60px' }}>{t('monitor.table.status')}</th>
                         <th style={{ width: '60px' }}>{t('monitor.table.method')}</th>
-                        <th style={{ width: '180px' }}>{t('monitor.table.model')}</th>
+                        <th style={{ width: '260px' }}>{t('monitor.table.model')}</th>
                         <th style={{ width: '140px' }}>{t('monitor.table.account')}</th>
-                        <th>{t('monitor.table.path')}</th>
+                        <th style={{ width: '180px' }}>{t('monitor.table.path')}</th>
                         <th className="text-right" style={{ width: '90px' }}>{t('monitor.table.usage')}</th>
                         <th className="text-right" style={{ width: '80px' }}>{t('monitor.table.duration')}</th>
                         <th className="text-right" style={{ width: '80px' }}>{t('monitor.table.time')}</th>
@@ -84,7 +84,7 @@ const LogTable: React.FC<LogTableProps> = ({
                                 </span>
                             </td>
                             <td className="font-bold" style={{ width: '60px' }}>{log.method}</td>
-                            <td className="text-blue-600 truncate" style={{ width: '180px', maxWidth: '180px' }}>
+                            <td className="text-blue-600 truncate" style={{ width: '260px', maxWidth: '260px' }}>
                                 {log.mapped_model && log.model !== log.mapped_model
                                     ? `${log.model} => ${log.mapped_model}`
                                     : (log.model || '-')}
@@ -92,7 +92,7 @@ const LogTable: React.FC<LogTableProps> = ({
                             <td className="text-gray-600 dark:text-gray-400 truncate text-[10px]" style={{ width: '140px', maxWidth: '140px' }}>
                                 {log.account_email ? log.account_email.replace(/(.{3}).*(@.*)/, '$1***$2') : '-'}
                             </td>
-                            <td className="truncate" style={{ maxWidth: '280px' }}>{log.url}</td>
+                            <td className="truncate" style={{ width: '180px', maxWidth: '180px' }}>{log.url}</td>
                             <td className="text-right text-[9px]" style={{ width: '90px' }}>
                                 {log.input_tokens != null && <div>I: {formatCompactNumber(log.input_tokens)}</div>}
                                 {log.output_tokens != null && <div>O: {formatCompactNumber(log.output_tokens)}</div>}
