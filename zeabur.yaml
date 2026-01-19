@@ -1,0 +1,25 @@
+# Zeabur 一键部署配置文件
+services:
+  antigravity-manager:
+    # 指定 Dockerfile 的正确路径
+    build:
+      dockerfile: deploy/docker/Dockerfile
+    
+    # 资源配置建议（Antigravity 运行浏览器较吃内存，建议手动调高）
+    resources:
+      cpu: 1000
+      memory: 2048
+
+    # 端口配置
+    ports:
+      - id: vnc-ui
+        port: 6080
+        type: HTTP
+      - id: proxy-api
+        port: 8045
+        type: HTTP
+
+    # 环境变量预设
+    env:
+      VNC_PASSWORD: "YourSecurePassword123" # 强烈建议部署后在控制台修改此值
+      PORT: 6080
